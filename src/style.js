@@ -16,7 +16,8 @@ export default function styleConstructor (
     },
     contentStyle: {
       backgroundColor: '#ffff',
-      height: calendarHeight + 10
+      height: calendarHeight + 10,
+      ...theme.contentStyle
     },
     header: {
       paddingHorizontal: 30,
@@ -31,12 +32,14 @@ export default function styleConstructor (
       ...theme.header
     },
     headerText: {
-      fontSize: 16
+      fontSize: 16,
+      ...theme.headerText
     },
     arrow: {
       width: 15,
       height: 15,
-      resizeMode: 'contain'
+      resizeMode: 'contain',
+      ...theme.arrow
     },
     event: {
       position: 'absolute',
