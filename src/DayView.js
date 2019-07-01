@@ -124,6 +124,12 @@ export default class DayView extends React.PureComponent {
     const { styles } = this.props
     const { packedEvents } = this.state
     let events = packedEvents.map((event, i) => {
+
+      let overridedStyles = {};
+      if ('color' in event) {
+        overridedStyles.backgroundColor = event.color;
+      }
+
       const style = {
         left: event.left,
         height: event.height,
@@ -138,7 +144,7 @@ export default class DayView extends React.PureComponent {
       return (
         <View
           key={i}
-          style={[styles.event, style]}
+          style={[styles.event, style, overridedStyles]}
         >
           {this.props.renderEvent ? this.props.renderEvent(event) : (
             <TouchableOpacity
